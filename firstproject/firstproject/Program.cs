@@ -157,4 +157,15 @@ else
 {
     Console.WriteLine("not deleted");
 }
+//click on hi hari
+IWebElement logouthelloHari = driver.FindElement(By.XPath("//*[@id='logoutForm']/ul/li/a"));
+logouthelloHari.Click();
+//select logout button
+IWebElement logout = driver.FindElement(By.XPath("//*[@id='logoutForm']/ul/li/ul/li[2]/a"));
+logout.Click();
+//goto login page
+driver.Manage().Window.Maximize();
+
+driver.Navigate().GoToUrl("http://horse.industryconnect.io/Account/Login?ReturnUrl=%2f");
+Console.WriteLine("logout successful");
 

@@ -6,12 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using NUnit.Framework;
 
 namespace firstproject.Pages
 {
     public class TMPage
     {
-        public void CreateTM(IWebDriver driver)
+        public void CreateTM(IWebDriver driver, IWebElement neweCode)
         {
             //click create new button
             driver.FindElement(By.XPath("//*[@id='container']/p/a")).Click();
@@ -46,18 +47,20 @@ namespace firstproject.Pages
             goToLastpageButton.Click();
             Thread.Sleep(2000);
             //chcek the material is created
-            IWebElement neweCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+            IWebElement newCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+            Thread.Sleep(1000);
+               // Assert.That(newCode.Text = "test", "actual code expected code do not match ");
             Thread.Sleep(1000);
 
-            if (neweCode.Text == "test")
+            if (newCode.Text == "test")
             {
                 Console.WriteLine("New  record created successfully.");
             }
             else
             {
-                Console.WriteLine("Material record is not created.");
+              Console.WriteLine("Material record is not created.");
             }
-            Thread.Sleep(1000);
+            
         }
         public void EditTM(IWebDriver driver)
         {

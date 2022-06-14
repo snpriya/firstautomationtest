@@ -20,5 +20,16 @@ namespace firstproject.Pages
             tmoption.Click();
             Thread.Sleep(1000);
         }
-    }
+        public void GoToEmployeePage(IWebDriver driver)
+        {
+            // navigate to employee page
+            ////click on Administration button
+           driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a")).Click();
+            Thread.Sleep(2000);
+
+            //select Employees from drop down button
+            driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[2]/a")).Click();
+            Thread.Sleep(1000);
+        }
+         }
 }

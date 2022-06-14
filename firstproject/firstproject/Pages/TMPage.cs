@@ -12,7 +12,7 @@ namespace firstproject.Pages
 {
     public class TMPage
     {
-        public void CreateTM(IWebDriver driver, IWebElement neweCode)
+        public void CreateTM(IWebDriver driver)
         {
             //click create new button
             driver.FindElement(By.XPath("//*[@id='container']/p/a")).Click();
@@ -47,20 +47,13 @@ namespace firstproject.Pages
             goToLastpageButton.Click();
             Thread.Sleep(2000);
             //chcek the material is created
-            IWebElement newCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+            IWebElement Createcode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+            
             Thread.Sleep(1000);
-               // Assert.That(newCode.Text = "test", "actual code expected code do not match ");
+               Assert.That(Createcode.Text == "test", "actual code expected code do not match ");
             Thread.Sleep(1000);
 
-            if (newCode.Text == "test")
-            {
-                Console.WriteLine("New  record created successfully.");
-            }
-            else
-            {
-              Console.WriteLine("Material record is not created.");
-            }
-            
+                       
         }
         public void EditTM(IWebDriver driver)
         {
@@ -69,6 +62,7 @@ namespace firstproject.Pages
            // IWebElement newcode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[8]/td[1]"));
             //if (newcode.Text == "test")
             {
+                Thread.Sleep(1000);
                 IWebElement goToLastpageButtons1 = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
                 goToLastpageButtons1.Click();
                 Thread.Sleep(2000);
@@ -105,29 +99,19 @@ namespace firstproject.Pages
                 Thread.Sleep(2000);
                 //chcek the material is edited
                 Console.WriteLine("checking edit");
-                //IWebElement enewCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+                IWebElement enewCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
             Thread.Sleep(2000);
-                //if (enewCode.Text == "24")
-
-                //{
-                  //  Console.WriteLine("New material record edited.");
-                //}
-                //else
-                //{
-                  //  Console.WriteLine("Material record hasn't been edited.");
-                //}
+                Assert.That(enewCode.Text == "24", "actual code expected code do not match ");
+                
             }
-            //else
-            //{
-              //Console.WriteLine("not success to edit");
-            //}
+            
         }
                 public void DeleteTM(IWebDriver driver)
                     {
             //delete function
             IWebElement goToLastpageButtons = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[4]/a[4]/span"));
            goToLastpageButtons.Click();
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
             IWebElement delete = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[5]/a[2]"));
                     delete.Click();
                     Thread.Sleep(1000);
@@ -141,17 +125,8 @@ namespace firstproject.Pages
 
                     //IWebElement delElement = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last]/td[5]/a[2]"));
             Thread.Sleep(2000);
-            //Console.WriteLine("if condition entering");
-              //      if (delElement.Text != "24")
-                //    {
-
-            //
-              //          Console.WriteLine("row deleted");
-                //    }
-                  //  else
-                    //{
-                      //  Console.WriteLine("not deleted");
-                    //}
+            //Assert.That(delElement.Text != "24", "actual code expected code do not match ");
+            
 
                 }
             }

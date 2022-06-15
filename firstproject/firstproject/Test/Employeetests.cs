@@ -26,7 +26,7 @@ namespace firstproject.Tests
             loginpageobj.LoginAction(driver);
             //homepage object initializatio and defintion
             Homepage homepageobj = new Homepage();
-            homepageobj.GoToTMpage(driver);
+            EmployeePage employeePageObj = new EmployeePage();
         }
 
         Homepage homepageobj = new Homepage();

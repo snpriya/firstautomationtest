@@ -50,7 +50,17 @@ namespace firstproject.Pages
             IWebElement Createcode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
             
             Thread.Sleep(1000);
-               Assert.That(Createcode.Text == "test", "actual code expected code do not match ");
+            //check if new maretial record has created
+            IWebElement newCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+            IWebElement newTypeCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[2]"));
+            IWebElement newDescription = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[3]"));
+            IWebElement newPrice = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[4]"));
+            //Assertion
+            Assert.That(newCode.Text == "test", "Actualcode and Expected Code do not match");
+            Assert.That(newTypeCode.Text == "M", "Actual Typecode and Expected Typecode do not match");
+            Assert.That(newDescription.Text == "automation", "Actual description and Expected description do not match");
+            Assert.That(newPrice.Text == "$12.00", "Actual price and Expected price do not match");
+            //Assert.That(Createcode.Text == "test", "actual code expected code do not match ");
             Thread.Sleep(1000);
 
                        
@@ -75,7 +85,7 @@ namespace firstproject.Pages
                 //click the code element to edit
                 Thread.Sleep(1000);
                 driver.FindElement(By.Id("Code")).Clear();
-                driver.FindElement(By.Id("Code")).SendKeys("24");
+                driver.FindElement(By.Id("Code")).SendKeys("editcode");
                 Console.WriteLine("code enter");
                 //identify the description textbox
                 driver.FindElement(By.Id("Description")).Clear();
@@ -101,7 +111,7 @@ namespace firstproject.Pages
                 Console.WriteLine("checking edit");
                 IWebElement enewCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
             Thread.Sleep(2000);
-                Assert.That(enewCode.Text == "24", "actual code expected code do not match ");
+                Assert.That(enewCode.Text == "editcode", "actual code expected code do not match ");
                 
             }
             

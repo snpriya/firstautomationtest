@@ -31,6 +31,7 @@ namespace firstproject.Pages
                 Thread.Sleep(1000);
                 IWebElement helloHari = driver.FindElement(By.XPath("//*[@id='logoutForm']/ul/li/a"));
                 //check the username and password is correct
+                //EmployeePage employeePageObj = new EmployeePage();
             }
             catch(Exception ex)
             {

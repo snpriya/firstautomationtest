@@ -14,7 +14,7 @@ namespace firstproject.Pages
     {
         public void LoginAction(IWebDriver driver)
            {
-            
+            driver.Manage().Window.Maximize();
             //launch turnup portal
             driver.Navigate().GoToUrl("http://horse.industryconnect.io/Account/Login?ReturnUrl=%2f");
             try

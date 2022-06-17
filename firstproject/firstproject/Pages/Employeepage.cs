@@ -110,7 +110,7 @@ namespace firstproject.Pages
             // Assert 2
             Assert.That(newNameTextBox.Text == "sathya", "Actual record and expected record do not match.");
             Assert.That(newUsernameTextBox.Text == "sathya25", "Actual record and expected record do not match.");
-
+            driver.Close();
         }
 
         public void EditEmployee(IWebDriver driver)
@@ -238,7 +238,7 @@ namespace firstproject.Pages
             // Assert 2
             Assert.That(editedName.Text == "sathya Newedit", "Actual record and expected record do not match.");
             Assert.That(editedUserName.Text == "sathya1 Newedit", "Actual record and expected record do not match.");
-
+            driver.Close();
 
         }
 
@@ -269,7 +269,7 @@ namespace firstproject.Pages
 
             // Assertion
             Assert.That(theLastRecord.Text != "sathya1 Newedit", "Employee record has not been deleted successfully.");
-
+            driver.Close();
         }
     }
 }

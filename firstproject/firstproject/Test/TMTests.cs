@@ -12,55 +12,47 @@ using System.Threading;
 
 namespace firstproject
 {
-   // public static void main()
-    //{ 
+
     [TestFixture]
     [Parallelizable]
-
-    public class TMTests : CommonDriver
+    public class TM_Tests : CommonDriver
     {
+        // page object initialization
 
-        //open chrome browser
-        [SetUp]
-        public void LoginAction()
-        {
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-            //loginpage object initialization and defintion
-            LoginPage loginpageobj = new LoginPage();
-            loginpageobj.LoginAction(driver);
-            //homepage object initializatio and defintion
-            Homepage homepageobj = new Homepage();
-            homepageobj.GoToTMpage(driver);
-        }
-        [Test, Order(1), Description("Create Time and Material record with valid data")]
+        TMPage tmPageObj = new TMPage();
+        Homepage homePageObj = new Homepage();
+
+        [Test, Order(1), Description("Create time and material record with valid data")]
         public void CreateTM()
         {
-            //tmpage object initializtion and definition
-            TMPage tmpageobj = new TMPage();
-            tmpageobj.CreateTM(driver);
+
+            // Home page object initialization and definition
+            homePageObj.GoToTMpage(driver);
+
+            // TM page object initialization and definition
+            tmPageObj.CreateTM(driver);
         }
-        [Test, Order(2), Description("EditTM time record created in test number 1")]
+        [Test, Order(2), Description("Edit time and material record created in test number 1")]
         public void EditTM()
         {
-            TMPage tmpageobj = new TMPage();
-            tmpageobj.EditTM(driver);
+            // Home page object initialization and definition
+            homePageObj.GoToTMpage(driver);
+
+            // Edit TM
+            tmPageObj.EditTM(driver,"dummy1","dummy2","dummy3");
         }
-        [Test, Order(3), Description("DeleteTM time record created in test number 2")]
+        [Test, Order(3), Description("Delete time and material record edited in test number 2")]
         public void DeleteTM()
         {
-            TMPage tmpageobj = new TMPage();
-            tmpageobj.DeleteTM(driver);
-        }
-        [TearDown]
-        public void CloseTestRun()
-        {
+            // Home page object initialization and definition
+            homePageObj.GoToTMpage(driver);
+
+            // Delete TM
+            tmPageObj.DeleteTM(driver);
 
         }
+
     }
+
 }
 
-
-    
-   // }
-    
